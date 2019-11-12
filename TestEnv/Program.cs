@@ -1,35 +1,40 @@
 ﻿using System;
-
 using StreamlabsEventReceiver;
 
 // Test envoirement for StreamlabsEventReceiver DLL
-namespace TestEnv
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            var token = "";
-            var SER = new StreamlabsEventClient();
+namespace TestEnv {
 
-            SER.StreamlabsSocketConnected += (o, e) => {
-                Console.WriteLine("Connected");
-            };
+	class Program {
 
-            SER.StreamlabsSocketDisconnected += (o, e) =>
-            {
-                Console.WriteLine("Disconnected");
-            };
+		static void Main(string[] args) {
 
-            SER.StreamlabsSocketEvent += (o, e) =>
-            {
-                Console.WriteLine(e.Data);
-            };
+			string token;
+			if (args.Length > 0) {
+				// Not really save, but it will do for most devs -BrainInBlack
+				token = args[0];
+			} else {
+				// StreamLabs SocketToken -BrainInBlack
+				token = "";
+			}
+			StreamlabsEventClient SER = new StreamlabsEventClient();
 
-            SER.Connect(token);
+			SER.StreamlabsSocketConnected += (o, e) => {
+				Console.WriteLine("Connected");
+			};
 
-            Console.ReadKey();
+			SER.StreamlabsSocketDisconnected += (o, e) => {
+				Console.WriteLine("Disconnected");
+			};
 
-        }
-    }
+			SER.StreamlabsSocketEvent += (o, e) => {
+				Console.Write(ObjectDumper.Dump(e.Data));
+				Console.WriteLine("###########");
+			};
+
+			SER.Connect(token);
+
+			Console.ReadKey();
+
+		}
+	}
 }
