@@ -44,7 +44,7 @@ namespace StreamlabsEventReceiver {
 	public class Donation : StreamlabsEventMessage {
 
 		[JsonProperty("_id")]
-		public string ID { get; protected set; }
+		public string Id { get; protected set; }
 
 		[JsonProperty("createdAt")]
 		public DateTime CreatedAt { get; private set; }
