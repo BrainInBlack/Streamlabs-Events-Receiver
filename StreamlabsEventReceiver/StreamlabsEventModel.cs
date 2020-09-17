@@ -16,8 +16,8 @@ namespace StreamlabsEventReceiver {
 	}
 
 	public class StreamlabsEventMessage {
-		//[JsonProperty("_id")]
-		//public string _Id { get; protected set; }
+		[JsonProperty("_id")]
+		public string Id { get; protected set; }
 
 		//[JsonProperty("event_id")]
 		//public string EventId { get; protected set; }
@@ -42,10 +42,6 @@ namespace StreamlabsEventReceiver {
 	#region Streamlabs Events
 
 	public class Donation : StreamlabsEventMessage {
-
-		[JsonProperty("_id")]
-		public string Id { get; protected set; }
-
 		[JsonProperty("createdAt")]
 		public DateTime CreatedAt { get; private set; }
 
@@ -99,17 +95,11 @@ namespace StreamlabsEventReceiver {
 	#region Twitch Events
 
 	public class TwitchFollow : StreamlabsEventMessage {
-		[JsonProperty("_id")]
-		public string Id { get; protected set; }
-
 		[JsonProperty("created_at")]
 		public DateTime CreatedAt { get; private set; }
 	}
 
 	public class TwitchSubscription : StreamlabsEventMessage {
-		[JsonProperty("_id")]
-		public string Id { get; protected set; }
-
 		[JsonProperty("display_name")]
 		public string DisplayName { get; protected set; }
 
@@ -162,10 +152,6 @@ namespace StreamlabsEventReceiver {
 	}
 
 	public class TwitchMysterySubscription : StreamlabsEventMessage {
-
-		[JsonProperty("_id")]
-		public string Id { get; protected set; }
-
 		[JsonProperty("amount")]
 		public int Amount { get; protected set; }
 
@@ -183,9 +169,6 @@ namespace StreamlabsEventReceiver {
 	}
 
 	public class TwitchCheer : StreamlabsEventMessage {
-		[JsonProperty("_id")]
-		public string Id { get; protected set; }
-
 		[JsonProperty("message")]
 		public string Message { get; protected set; }
 
@@ -197,10 +180,6 @@ namespace StreamlabsEventReceiver {
 	}
 
 	public class TwitchHost : StreamlabsEventMessage {
-
-		[JsonProperty("_id")]
-		public string Id { get; protected set; }
-
 		//[JsonProperty("type")]
 		//public string Type { get; private set; }
 
@@ -209,10 +188,6 @@ namespace StreamlabsEventReceiver {
 	}
 
 	public class TwitchRaid : StreamlabsEventMessage {
-
-		[JsonProperty("_id")]
-		public string Id { get; protected set; }
-
 		[JsonProperty("raiders")]
 		public int Raiders { get; private set; }
 	}
@@ -222,17 +197,11 @@ namespace StreamlabsEventReceiver {
 	#region Youtube Events
 
 	public class YoutubeSubscription : StreamlabsEventMessage {
-		[JsonProperty("id")]
-		public string Id { get; protected set; }
-
 		[JsonProperty("publishedAt")]
 		public DateTime CreatedAt { get; private set; }
 	}
 
 	public class YoutubeSponsor : StreamlabsEventMessage {
-		[JsonProperty("id")]
-		public string Id { get; protected set; }
-
 		[JsonProperty("sponsorSince")]
 		public DateTime SponsorSince { get; private set; }
 
@@ -244,9 +213,6 @@ namespace StreamlabsEventReceiver {
 	}
 
 	public class YoutubeSuperchat : StreamlabsEventMessage {
-		[JsonProperty("id")]
-		public string Id { get; private set; }
-
 		[JsonProperty("channelId")]
 		public string ChannelId { get; private set; }
 
